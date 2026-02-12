@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7167aa1f4d00c89261e855cc9bcb0b25",
+    "content-hash": "ebf5c0a55748e129a634a02b7a2f47ab",
     "packages": [
         {
             "name": "brick/math",
@@ -2148,8 +2148,8 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "..",
-                "reference": "60e7daecf562b6a70e8bc92477dddc9bb32214c3"
+                "url": "./packages/plume",
+                "reference": "a6e117251cf20ca3d4cabe633211c4552131aa9e"
             },
             "require": {
                 "calebporzio/sushi": "^2.5",
@@ -2193,7 +2193,9 @@
                     "pest --type-coverage --exactly=100"
                 ],
                 "test:lint": [
-                    "pint --test"
+                    "pint --test",
+                    "npm run format:check",
+                    "npm run lint:check"
                 ],
                 "test:unit": [
                     "pest --exactly=100"
@@ -2230,7 +2232,6 @@
                 "wiki"
             ],
             "transport-options": {
-                "symlink": true,
                 "relative": true
             }
         },

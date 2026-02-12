@@ -1,0 +1,73 @@
+{
+    "name": "meetplume/plume",
+    "description": "An utility for markdown content - pages, docs, wikis and more.",
+    "keywords": ["markdown", "content", "laravel", "documentation", "wiki"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patricio",
+            "email": "ijpatricio@gmail.com"
+        },
+        {
+            "name": "Charlie Etienne",
+            "email": "ce@web-nancy.fr"
+        }
+    ],
+    "require": {
+        "php": "^8.4.0",
+        "calebporzio/sushi": "^2.5",
+        "inertiajs/inertia-laravel": "^2.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.24.0",
+        "pestphp/pest": "^4.1.0",
+        "pestphp/pest-plugin-type-coverage": "^4.0.2",
+        "phpstan/phpstan": "^2.1.26",
+        "rector/rector": "^2.1.7",
+        "symfony/var-dumper": "^7.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Meetplume\\Plume\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "lint": "pint",
+        "refactor": "rector",
+        "test:type-coverage": "pest --type-coverage --exactly=100",
+        "test:lint": [
+            "pint --test",
+            "npm run format:check",
+            "npm run lint:check"
+        ],
+        "test:unit": "pest --exactly=100",
+        "test:refactor": "rector --dry-run",
+        "test": [
+            "@test:lint",
+            "@test:type-coverage",
+            "@test:unit",
+            "@test:refactor"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Meetplume\\Plume\\PlumeServiceProvider"
+            ]
+        }
+    }
+}
